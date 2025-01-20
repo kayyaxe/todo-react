@@ -6,7 +6,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (taskName) => {
-    const newTask = { id: Date.now(), name: taskName };
+    const newTask = { id: Date.now(), name: taskName, completed: false };
     setTasks([...tasks, newTask]);
   };
 
@@ -14,11 +14,18 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
+  const toggleComplete = (taskId) => {
+    setTasks(tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    ));
+  };
+  
+
   return (
     <div>
       <h1>To-Do List</h1>
       <AddTaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onDelete={deleteTask} />
+      <TaskList tasks={tasks} onDelete={deleteTask} onToggleComplete={toggleComplete} />
     </div>
   );
 }
