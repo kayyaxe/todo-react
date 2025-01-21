@@ -119,18 +119,37 @@ input[type="checkbox"] {
   accent-color: #f1b7c1; /* Pink accent for checkbox */
 }
 
+/* Style for the Edit button */
+.edit-button {
+  background-color: transparent;  
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #fabdd5;  /* Darker pink on hover */
+}
+
+
 /* Bin Icon for Deleting Tasks */
 button.delete-button {
-  background-color: transparent;
+  background-color: transparent;  
+  color: white;
+  font-size: 1.3em;
   border: none;
-  font-size: 1.5rem;
-  color: #f1b7c1; /* Soft pink color for bin icon */
+  border-radius: 8px;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 button.delete-button:hover {
-  color: #e5a1b1; /* Slightly darker pink when hovering */
+  background-color: #fabdd5;  /* Darker pink on hover */
 }
 
 /* Light Mode */

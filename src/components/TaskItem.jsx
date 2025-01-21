@@ -11,7 +11,9 @@ function TaskItem({ task, onDelete, onToggleComplete }) {
         />
         {task.title}
       </label>
-      
+      <button className="edit-button" onClick={() => onEdit(task.id)}>
+        ✏️
+      </button>
       <button className="delete-button" onClick={() => onDelete(task.id)}>
         🗑️
       </button>
