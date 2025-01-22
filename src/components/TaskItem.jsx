@@ -40,9 +40,9 @@ function TaskItem({ task, onDelete, onToggleComplete, onEdit }) {
           </button>
         </div>
       ) : (
-        <div>
+        <div class="split-left-right">
           {/* View mode: show task title and edit/delete buttons */}
-          <label className={task.completed ? 'completed' : ''}>
+          <label className={(task.completed ? 'completed' : '') + ' task-label'}>
             <input
               type="checkbox"
               checked={task.completed} // Show checked if the task is completed
@@ -50,12 +50,15 @@ function TaskItem({ task, onDelete, onToggleComplete, onEdit }) {
             />
             {task.title}
           </label>
+          <div>
           <button className="edit-button" onClick={handleEditClick}>
             ✏️ 
           </button>
           <button className="delete-button" onClick={() => onDelete(task.id)}>
             🗑️ 
           </button>
+          </div>
+          
         </div>
       )}
     </li>

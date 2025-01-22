@@ -10,15 +10,18 @@ function AddTaskForm({ onAddTask }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-task-container">
       <input
-        type="text"
+        id = "addTaskField"
+        type="textfield"
         value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
-        placeholder="Add a new task"
+        placeholder="What's on today's list?"
         required
       />
-      <button type="submit">Add Task</button>
+      <button type="submit" className="add-task-btn">
+        +
+      </button>
     </form>
   );
 }
