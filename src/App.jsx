@@ -21,7 +21,6 @@ function App() {
       .catch(error => console.error('Error adding task:', error));
   };
   
-
   // Delete a task via the backend
   const deleteTask = (taskId) => {
     axios.delete(`http://localhost:8080/api/tasks/${taskId}`)
@@ -39,16 +38,31 @@ function App() {
       .catch(error => console.error('Error updating task:', error));
   };
 
+  // Edit a task's title via the backend
+  const editTask = (taskId, newTitle) => {
+    const taskToUpdate = tasks.find((task) => task.id === taskId);
+    const updatedTask = { ...taskToUpdate, title: newTitle };
+
+    axios
+      .put(`http://localhost:8080/api/tasks/${taskId}`, updatedTask)
+      .then(() => setTasks(tasks.map((task) => (task.id === taskId ? updatedTask : task))))
+      .catch((error) => console.error('Error editing task:', error));
+
+  };
+
   return (
     <div>
       <h1>To-Do List</h1>
       <AddTaskForm onAddTask={addTask} />
-      <TaskList tasks={tasks} onDelete={deleteTask} onToggleComplete={toggleComplete} />
+      <TaskList
+        tasks={tasks}
+        onDelete={deleteTask}
+        onToggleComplete={toggleComplete}
+        onEdit={editTask} // Pass the edit handler
+      />
     </div>
   );
 }
-
-
 
 
 export default App;
