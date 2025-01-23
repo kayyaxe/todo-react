@@ -25,19 +25,23 @@ function TaskItem({ task, onDelete, onToggleComplete, onEdit }) {
   return (
     <li>
       {isEditing ? (
-        <div>
+        <div class="split-left-right">
           {/* Edit mode: show input field and save/cancel buttons */}
           <input
-            type="text"
+            id = "editTaskField"
+            type="textfield"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)} // Update the edited title as the user types
           />
-          <button className="save-button" onClick={handleSaveClick}>
-          ✔
-          </button>
-          <button className="cancel-button" onClick={handleCancelClick}>
-          ❌
-          </button>
+          <div>
+            <button className="right-button" onClick={handleSaveClick}>
+            ✔️
+            </button>
+            <button className="right-button" onClick={handleCancelClick}>
+            ❌
+            </button>
+          </div>
+
         </div>
       ) : (
         <div class="split-left-right">
@@ -51,12 +55,12 @@ function TaskItem({ task, onDelete, onToggleComplete, onEdit }) {
             {task.title}
           </label>
           <div>
-          <button className="edit-button" onClick={handleEditClick}>
-            ✏️ 
-          </button>
-          <button className="delete-button" onClick={() => onDelete(task.id)}>
-            🗑️ 
-          </button>
+            <button className="right-button" onClick={handleEditClick}>
+              ✏️ 
+            </button>
+            <button className="right-button" onClick={() => onDelete(task.id)}>
+              🗑️ 
+            </button>
           </div>
           
         </div>
