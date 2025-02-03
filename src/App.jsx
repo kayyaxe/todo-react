@@ -6,7 +6,7 @@ import AddTaskForm from './components/AddTaskForm';
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const url = 'https://todo-backend-96gx.onrender.com:8080/api/tasks'
+  const url = 'https://todo-backend-96gx.onrender.com/api/tasks'
   // Fetch tasks from the backend when the component mounts
   useEffect(() => {
     axios.get(url)
