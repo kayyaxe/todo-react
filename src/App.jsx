@@ -3,12 +3,13 @@ import axios from 'axios';
 import TaskList from './components/TaskList';
 import AddTaskForm from './components/AddTaskForm';
 
+
 function App() {
   const [tasks, setTasks] = useState([]);
-
+  const url = 'https://todo-backend-96gx.onrender.com:8080/api/tasks'
   // Fetch tasks from the backend when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:8080/api/tasks')
+    axios.get(url)
       .then(response => setTasks(response.data))
       .catch(error => console.error('Error fetching tasks:', error));
   }, []);
@@ -16,14 +17,14 @@ function App() {
   // Add a new task via the backend
   const addTask = (taskTitle) => {
     const newTask = { title: taskTitle, completed: false };
-    axios.post('http://localhost:8080/api/tasks', newTask)
+    axios.post(url, newTask)
       .then(response => setTasks([...tasks, response.data]))
       .catch(error => console.error('Error adding task:', error));
   };
   
   // Delete a task via the backend
   const deleteTask = (taskId) => {
-    axios.delete(`http://localhost:8080/api/tasks/${taskId}`)
+    axios.delete(`${url}/${taskId}`)
       .then(() => setTasks(tasks.filter((task) => task.id !== taskId)))
       .catch(error => console.error('Error deleting task:', error));
   };
@@ -33,7 +34,7 @@ function App() {
     const taskToUpdate = tasks.find(task => task.id === taskId);
     const updatedTask = { ...taskToUpdate, completed: !taskToUpdate.completed };
 
-    axios.put(`http://localhost:8080/api/tasks/${taskId}`, updatedTask)
+    axios.put(`${url}/${taskId}`, updatedTask)
       .then(() => setTasks(tasks.map(task => (task.id === taskId ? updatedTask : task))))
       .catch(error => console.error('Error updating task:', error));
   };
@@ -44,7 +45,7 @@ function App() {
     const updatedTask = { ...taskToUpdate, title: newTitle };
 
     axios
-      .put(`http://localhost:8080/api/tasks/${taskId}`, updatedTask)
+      .put(`${url}/${taskId}`, updatedTask)
       .then(() => setTasks(tasks.map((task) => (task.id === taskId ? updatedTask : task))))
       .catch((error) => console.error('Error editing task:', error));
 
