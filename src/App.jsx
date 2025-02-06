@@ -4,9 +4,10 @@ import TaskList from './components/TaskList';
 import AddTaskForm from './components/AddTaskForm';
 
 
+
 function App() {
   const [tasks, setTasks] = useState([]);
-  const url = 'https://todo-backend-96gx.onrender.com/api/tasks'
+  const url = import.meta.env.VITE_API_URL
   // Fetch tasks from the backend when the component mounts
   useEffect(() => {
     axios.get(url)
@@ -54,7 +55,9 @@ function App() {
   return (
     <div>
       <h1>To-Do List</h1>
+      // calls addtaskform
       <AddTaskForm onAddTask={addTask} />
+      //calls task list & passes the following methods to it
       <TaskList
         tasks={tasks}
         onDelete={deleteTask}
@@ -67,3 +70,5 @@ function App() {
 
 
 export default App;
+
+
