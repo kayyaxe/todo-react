@@ -55,9 +55,9 @@ function App() {
   return (
     <div>
       <h1>To-Do List</h1>
-      // calls addtaskform
+      {/* calls AddTaskForm */}
       <AddTaskForm onAddTask={addTask} />
-      //calls task list & passes the following methods to it
+      {/* calls TaskList and passes methods to it */}
       <TaskList
         tasks={tasks}
         onDelete={deleteTask}
