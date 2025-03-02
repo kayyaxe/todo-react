@@ -62,10 +62,10 @@ A simple to-do list web application built with **React (Vercel)**, **Spring Boot
 
 ## 🎨 Screenshots
 
-| Home Page                                                    | Add Task  |
-| ------------------------------------------------------------ | --------- |
-| ![Edit Mode Off](public/todo-react-kar.vercel.app_.png)      | Home Page |
-| ![Edit Mode On](<public/todo-react-kar.vercel.app_ (1).png>) | Home Page |
+| Home Page                                                    | Edit Mode Task |
+| ------------------------------------------------------------ | -------------- |
+| ![Edit Mode Off](public/todo-react-kar.vercel.app_.png)      | Off            |
+| ![Edit Mode On](<public/todo-react-kar.vercel.app_ (1).png>) | On             |
 
 ## 📚 What I Have Learned
 
